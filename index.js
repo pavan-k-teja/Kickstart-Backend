@@ -11,7 +11,7 @@ const fs             = require('fs');
 const path           = require('path');
 const yaml           = require('yamljs');
 const swaggerui      = require('swagger-ui-express');
-const swaggerDoc     = yaml.load("./api.yaml");
+const swaggerDoc     = yaml.load(path.join(__dirname, "api.yaml"));
 
 const app = express();
 const store = new MongoDBStore({
