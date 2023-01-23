@@ -31,7 +31,6 @@ app.use(morgan(':method :url :status :date[iso] :response-time ms'));
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
 
-app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(
