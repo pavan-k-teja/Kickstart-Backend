@@ -11,7 +11,7 @@ const fs             = require('fs');
 const path           = require('path');
 const yaml           = require('yamljs');
 const swaggerui      = require('swagger-ui-express');
-const swaggerDoc     = yaml.load(path.join(__dirname, "api.yaml"));
+const swaggerDoc     = yaml.load("public/api.yaml");
 
 const app = express();
 const store = new MongoDBStore({
@@ -22,6 +22,7 @@ const store = new MongoDBStore({
 dotenv.config();
 
 app.use(express.json());
+app.use(express.static(__dirname + "/public/"));
 app.use(cors());
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.use(morgan(':method :url :status :date[iso] :response-time ms', { stream: accessLogStream}));
