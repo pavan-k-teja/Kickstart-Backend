@@ -24,7 +24,7 @@ dotenv.config();
 app.use(express.json());
 app.use(express.static(__dirname + "/public/"));
 app.use(cors());
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+const accessLogStream = fs.createWriteStream('public/access.log', { flags: 'a' })
 app.use(morgan(':method :url :status :date[iso] :response-time ms', { stream: accessLogStream}));
 app.use(morgan(':method :url :status :date[iso] :response-time ms'));
 
